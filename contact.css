@@ -1,0 +1,213 @@
+/* Contact Page Styles */
+:root {
+  --color-primary:   #403EF1;
+  --color-secondary: #F26722;
+  --color-text:      #7A7A7A;
+  --color-accent:    #469FD7;
+  --color-bg-light:  #f9f9f9;
+  --transition-fast: 0.3s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body.page-template-contact-php {
+  background: var(--color-bg-light);
+  color: var(--color-text);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.4;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (max-width:768px) {
+  .contact-wrapper { gap: .5rem; }
+}
+
+/* entry animations */
+.animate {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .6s var(--transition-fast), transform .6s var(--transition-fast);
+}
+.animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Contact Info Column */
+.contact-info { padding: 1rem; }
+.contact-info .subtitle {
+  text-transform: uppercase;
+  font-size: .9rem;
+  color: var(--color-secondary);
+  letter-spacing: 1px;
+  margin-bottom: .3rem;
+}
+.contact-info h2 {
+  font-size: 1.9rem;
+  color: var(--color-primary);
+  margin-bottom: .6rem;
+}
+.contact-info p.intro {
+  font-size: 1rem;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1rem;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: .6rem 0;
+}
+.contact-item + .contact-item {
+  border-top: 1px solid #eee;
+}
+.contact-item i {
+  font-size: 1.3rem;
+  color: var(--color-primary);
+  width: 30px;
+  text-align: center;
+  margin-right: .75rem;
+}
+.contact-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: .3rem;
+}
+.contact-item p {
+  font-size: .9rem;
+  color: #555;
+}
+.social-header {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  color: var(--color-primary);
+}
+.social-header i { margin-left: .5rem; }
+.social-links {
+  display: flex;
+  gap: .5rem;
+  margin-top: .5rem;
+}
+.social-links a {
+  font-size: 1.3rem;
+  color: #666;
+  transition: color var(--transition-fast);
+}
+.social-links a:hover {
+  color: var(--color-primary);
+}
+
+/* Form Column */
+.contact-form { padding: 1rem; }
+.form-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+.form-group { margin-bottom: .75rem; }
+.form-group label {
+  display: block;
+  margin-bottom: .3rem;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #444;
+}
+.form-control {
+  width: 100%;
+  padding: .5rem .75rem;
+  font-size: .9rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 25px;
+  background: transparent;
+  color: var(--color-text);
+  transition: background var(--transition-fast);
+}
+.form-control:focus { outline: none; background: #fff; }
+
+/* Select arrow */
+select.form-control {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path fill="%23403EF1" d="M4 6l4 4 4-4z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: .65rem;
+}
+textarea.form-control { min-height: 120px; border-radius: 15px; }
+
+/* Radio buttons */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.radio-group label {
+  display: flex;
+  align-items: center;
+  padding: .4rem .8rem;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+.radio-group input[type="radio"] {
+  margin-right: .5rem;
+}
+.note {
+  font-size: .85rem;
+  color: #a33;
+  margin-top: .5rem;
+}
+
+/* Form footer */
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+.submit-btn {
+  background: var(--color-primary);
+  color: #fff;
+  padding: .6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform .2s ease, background var(--transition-fast);
+}
+.submit-btn:hover {
+  transform: scale(1.05);
+  background: #3432d1;
+}
+.success-text {
+  margin-left: 1rem;
+  font-size: .85rem;
+  color: var(--color-accent);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+.success-text.visible {
+  opacity: 1;
+}
+@media (max-width:480px) {
+  .form-footer {
+    justify-content: center;
+  }
+}
